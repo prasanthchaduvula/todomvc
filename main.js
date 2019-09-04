@@ -118,15 +118,23 @@ function cleartodo(){
 
 // function calling
 
+// eventlistner to clear completed tasks
 clear.addEventListener("click",cleartodo)
 
+// eventlistner to show completed tasks
 completed.addEventListener("click",completedtodo)
 
+// eventlistner to show all todo
 all.addEventListener("click",alltodo)
 
+// eventlistner to show all active todo's
 allactive.addEventListener("click",activetodo)
 
+// eventlistner to delete todo
 ul.addEventListener("click",deletetodo)
 
+// eventlistner to change isdone false or true
 ul.addEventListener("click",isdonechange)
+
+// eventlistner to add new todo
 input.addEventListener("keyup",addtodo);
