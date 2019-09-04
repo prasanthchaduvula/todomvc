@@ -44,6 +44,8 @@ function display(data){
 		if(e.isdone) {
 			checkbox.checked = true;
 		}
+
+		activeitems()
 	});
 }
 // function to update isdone value in data
@@ -51,6 +53,7 @@ function isdonechange(event){
 	if(event.target.dataset.checkid){
 		data[event.target.dataset.checkid].isdone = !data[event.target.dataset.checkid].isdone
 	}
+	display(data);
 	
 }
 
@@ -59,10 +62,19 @@ function isdonechange(event){
 function deletetodo(event){
 	if(event.target.dataset.closeid){
 		data.splice(data[event.target.dataset.closeid],1);
-		display(data);
+
 	}
+	display(data);
 }
 
+// function to make activelength
+
+function activeitems(){
+	var activelength = data.filter((e) =>{
+		return e.isdone == false;
+	});
+	itemsleft.innerText = `${activelength.length} items left`;
+}
 
 
 // function to show all active todo's
@@ -70,7 +82,7 @@ function activetodo(){
 	active = data.filter((e) =>{
 		return e.isdone == false;
 	});
-	itemsleft.innerText = active.length;
+	
 	display(active);
 }
 
@@ -79,7 +91,7 @@ function alltodo(){
 	const all = data.map((e) =>{
 		return e;
 	});
-	itemsleft.innerText = active.length;
+	
 	display(all);
 }
 
@@ -88,7 +100,7 @@ function completedtodo(){
 	const complete = data.filter((e) =>{
 		return e.isdone == true;
 	});
-	itemsleft.innerText = active.length;
+	
 	display(complete);
 }
 
@@ -99,30 +111,22 @@ function cleartodo(){
 			data.splice(i, 1);
 		}
 	});
-	itemsleft.innerText = active.length;
+
 	completedtodo();
 }
 
 
-// event listners
+// function calling
 
-// click on clear button to clear complted
-clear.addEventListener("click",cleartodo);
+clear.addEventListener("click",cleartodo)
 
-// click on completed to check completed todo 
-completed.addEventListener("click",completedtodo);
+completed.addEventListener("click",completedtodo)
 
-// click on the active to see all todo's
-all.addEventListener("click",alltodo);
+all.addEventListener("click",alltodo)
 
-// click one active to see all active todo's
-allactive.addEventListener("click",activetodo);
+allactive.addEventListener("click",activetodo)
 
-// click on close button to delete todo
-ul.addEventListener("click",deletetodo);
+ul.addEventListener("click",deletetodo)
 
-// click on the checkboxto change its value from isdone or not
-ul.addEventListener("click",isdonechange);
-
-// click on the todo input box to add new todo
+ul.addEventListener("click",isdonechange)
 input.addEventListener("keyup",addtodo);

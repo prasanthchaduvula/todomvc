@@ -4,22 +4,26 @@
 		<meta charset="utf-8">
 		<title>ToDo</title>
 		<link rel="stylesheet" type="text/css" href="./style.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<h1 class="todo-heading">todos</h1>
 		<section class="wrapper">
 			<input id="inputText" type="text" name="" placeholder="enter your ToDo">			
+			<ul class="list-container">
+				<!-- list item -->
+			</ul>
+			<div id="flex">
+				<p id="itemsLeft"></p>
+				<div>
+						<button id="all">All</button>
+						<button id="allactive">Active</button>
+						<button id="completed">completed</button>
+						<button id="clear">clear completed</button>
+				</div>
+				
+			</div>
 		</section>
-		<ul class="list-container">
-			<!-- list item -->
-		</ul>
-		<div id="flex">
-			<p id="itemsLeft"></p>
-			<button id="all">All</button>
-			<button id="allactive">Active</button>
-			<button id="completed">completed</button>
-			<button id="clear">clear completed</button>
-		</div>
-		
 		<script src="./main.js"></script>
 	</body>
 </html>
