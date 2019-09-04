@@ -1,0 +1,25 @@
+.wrapper {
+	text-align: center;
+	margin-top: 100px;
+}
+#inputText {
+	width: 450px;
+	padding: 15px;
+	border-radius: 20px;
+	box-shadow: 0 0 20px 0; 
+}
+li {
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+}
+#flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+input[type="checkbox"]:checked + p{
+	text-decoration: line-through;
+}
